@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <Button
+        android:id="@+id/buy_genre_button_diamonds"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:src="@drawable/rounded_rectangle"
+        android:text="Buy gor 10 diamonds"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintLeft_toRightOf="@+id/buy_genre_button_coins"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <Button
+        android:id="@+id/buy_genre_button_coins"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:text="Buy for 99 coins"
+        android:src="@drawable/rounded_rectangle"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buy_genre_button_diamonds"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.3"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

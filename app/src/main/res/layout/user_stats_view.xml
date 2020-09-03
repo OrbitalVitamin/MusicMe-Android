@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/level"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/spacer2"
+        android:src="@mipmap/level"/>
+
+    <Space
+        android:id="@+id/spacer2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@id/level"
+        app:layout_constraintRight_toLeftOf="@+id/life"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.1"/>
+
+    <ImageView
+        android:id="@+id/life"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        app:layout_constraintLeft_toRightOf="@id/spacer2"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.1"
+        app:layout_constraintRight_toLeftOf="@id/hear_text"
+
+        android:src="@mipmap/heart"/>
+
+    <TextView
+        android:id="@+id/hear_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="5"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintLeft_toRightOf="@id/life"
+        app:layout_constraintRight_toLeftOf="@id/coins"
+
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.1"/>
+    
+    <ImageView
+        android:id="@+id/coins"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="5"
+        android:gravity="center_vertical"
+        app:layout_constraintLeft_toRightOf="@id/hear_text"
+        app:layout_constraintRight_toLeftOf="@id/coin_text"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintWidth_percent="0.1"
+        app:layout_constraintHeight_percent="0.1"
+        android:src="@mipmap/coins"/>
+
+    <TextView
+        android:id="@+id/coin_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="5"
+        android:gravity="center_vertical"
+        app:layout_constraintLeft_toRightOf="@id/coins"
+        app:layout_constraintRight_toLeftOf="@id/diamonds"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.1"/>
+
+    <ImageView
+        android:id="@+id/diamonds"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintLeft_toRightOf="@id/coin_text"
+        app:layout_constraintRight_toLeftOf="@id/dia_text"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.1"
+        android:src="@mipmap/diamonds"/>
+
+    <TextView
+        android:id="@+id/dia_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="5"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical"
+        app:layout_constraintLeft_toRightOf="@id/diamonds"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.1"
+        app:layout_constraintRight_toLeftOf="@id/leaderboard"/>
+
+    <ImageView
+        android:id="@+id/leaderboard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/dia_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.1"
+        android:src="@mipmap/lead"/>
+
+        <TextView
+            android:id="@+id/life_time"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/life"
+            app:layout_constraintLeft_toRightOf="@id/level"
+            app:layout_constraintRight_toLeftOf="@id/coins"
+            android:textColor="#000000"
+            android:gravity="center_horizontal"
+            android:background="@color/colorPrimary"
+            android:visibility="visible"
+            app:layout_constraintHeight_percent="0.05"/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

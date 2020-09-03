@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        app:state_correct="false"
+        app:state_wrong="true"
+        android:drawable="@drawable/answer_wrong" />
+
+    <item
+        app:state_correct="true"
+        app:state_wrong="false"
+        android:drawable="@drawable/answer_correct"/>
+
+    <item
+        app:state_correct="false"
+        app:state_wrong="false"
+        android:drawable="@drawable/rounded_rectangle"/>
+
+</selector>

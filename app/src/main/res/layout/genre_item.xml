@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="right"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintDimensionRatio="w,1:1"
+        android:src="@mipmap/circle"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toTopOf="@id/spacer"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/genre_image"
+        android:src="@mipmap/sample"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Space
+        android:id="@+id/spacer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/genre_image"
+        app:layout_constraintTop_toTopOf="@id/genre_image"
+        app:layout_constraintRight_toRightOf="@id/genre_image"
+        app:layout_constraintLeft_toLeftOf="@id/genre_image"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintVertical_bias="0.125"/>
+
+    <TextView
+        android:id="@+id/genre_name"
+        android:text="Genre name"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/genre_image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/genre_image"
+        app:layout_constraintRight_toRightOf="@id/genre_image"
+        app:layout_constraintLeft_toLeftOf="@id/genre_image"
+        app:layout_constraintHeight_percent="0.1"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
