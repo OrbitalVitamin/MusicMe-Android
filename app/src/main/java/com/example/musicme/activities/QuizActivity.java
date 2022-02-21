@@ -17,8 +17,6 @@ import android.widget.TextView;
 
 import com.example.musicme.R;
 import com.example.musicme.objects.QuestionAttributes;
-import com.example.musicme.objects.QuestionNameHolder;
-import com.example.musicme.utilities.BlobDownloader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +24,7 @@ import java.util.List;
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
     TextView titleText;
     DisplayMetrics displayMetrics;
-    ImageView playBttn;
+    ImageView playButton;
     private MediaPlayer mediaPlayer;
 
 
@@ -46,13 +44,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
- //       questionAttributes.add(new QuestionAttributes(3, new QuestionNameHolder("Feel Special", "Dalla Dalla", "Albatross", "Fanfare"), R.raw.aronchupa));
-   //     questionAttributes.add(new QuestionAttributes(1, new QuestionNameHolder("Boombayah", "ICY", "IDOL", "What is Love?"), R.raw.blackpink));
-     //   questionAttributes.add(new QuestionAttributes(4, new QuestionNameHolder("Dun Dun", "Cheer up", "FIRE", "Wannabe"), R.raw.itzy));
-       // questionAttributes.add(new QuestionAttributes(1, new QuestionNameHolder("Fancy", "Fever", "Latata", "Adios"), R.raw.twice));
-
         titleText = findViewById(R.id.quiz_title);
-        playBttn = findViewById(R.id.play_button);
+        playButton = findViewById(R.id.play_button);
         answer1Box = findViewById(R.id.answer1);
         answer2Box = findViewById(R.id.answer2);
         answer3Box = findViewById(R.id.answer3);
@@ -84,8 +77,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         setLayout();
 
-        setMediaPlayer();
-
         setOnClickListeners();
 
         backMenuButton.setOnClickListener(new View.OnClickListener() {
@@ -99,9 +90,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void setMediaPlayer(){
-     //   mediaPlayer = MediaPlayer.create(this, questionAttributes.get(qIndex).getSoundfile());
-    }
 
     private void playSound() {
         mediaPlayer.start();
@@ -110,8 +98,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private void setLayout(){
         titleText.setHeight(displayMetrics.heightPixels/13);
         titleText.setTextSize(convertToDp(displayMetrics.heightPixels/20, displayMetrics.density));
-        playBttn.getLayoutParams().height = (int) (displayMetrics.heightPixels/5.2);
-        playBttn.getLayoutParams().width = (int) (displayMetrics.heightPixels/5.2);
+        playButton.getLayoutParams().height = (int) (displayMetrics.heightPixels/5.2);
+        playButton.getLayoutParams().width = (int) (displayMetrics.heightPixels/5.2);
         int metrics =  (int) (displayMetrics.widthPixels * 0.4);
 
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -131,7 +119,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         setText();
         final MediaPlayer mediaPlayer = MediaPlayer.create(this, Uri.parse("https://musicmestorage.blob.core.windows.net/audioclips/Alone.mp3"));
 
-        playBttn.setOnClickListener(new View.OnClickListener() {
+        playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
@@ -207,7 +195,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void answerClicked(final View view, int index){
-       final MediaPlayer mediaPlayer = MediaPlayer.create(this, Uri.parse("https://musicmestorage.blob.core.windows.net/audioclips/Alone.mp3") );
+       final MediaPlayer mediaPlayer = MediaPlayer.create(this, Uri.parse("") );
         if(questionAttributes.get(this.qIndex).getCorrectIndex() == index) {
             view.setBackgroundResource(R.drawable.answer_correct);
             this.correctAns++;
@@ -229,7 +217,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
                     view.setBackgroundResource(R.drawable.rounded_rectangle);
                     setLayout();
-                    setMediaPlayer();
 
                     mediaPlayer.start();
                 } else {

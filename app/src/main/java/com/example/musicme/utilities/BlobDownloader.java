@@ -1,8 +1,6 @@
 package com.example.musicme.utilities;
 
 import android.content.Context;
-import android.provider.MediaStore;
-import android.util.Log;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
@@ -10,7 +8,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.musicme.objects.Song;
 
@@ -31,7 +28,7 @@ public class BlobDownloader {
         final HashMap<String, byte[]> audioclips = new HashMap<>();
         final RequestCounter counter = new RequestCounter(songs.size());
         for(int i = 0; i < songs.size(); i++){
-            String url = "https://musicmes.azureedge.net/audioclips/"+songs.get(i)+type;
+            String url = ""+songs.get(i)+type;
             final String song = songs.get(i);
             Request request = new Request(Request.Method.GET, url, new Response.ErrorListener() {
                 @Override

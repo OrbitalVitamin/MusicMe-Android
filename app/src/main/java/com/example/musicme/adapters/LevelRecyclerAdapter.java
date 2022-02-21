@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musicme.R;
 import com.example.musicme.database.SqlPlayerData;
-import com.example.musicme.dialogs.BuyGenreDialog;
 import com.example.musicme.enums.GameState;
 import com.example.musicme.enums.GenreItemState;
 import com.example.musicme.marathon.SubMenuFragment;
@@ -41,7 +40,7 @@ public class LevelRecyclerAdapter extends RecyclerView.Adapter<LevelRecyclerAdap
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         View view;
-        TextView genreName, levelText;
+        TextView genreName;
         ImageView genreImage, lockImage;
         SqlPlayerData data;
         private GenreItemState genreItemState;
@@ -82,8 +81,6 @@ public class LevelRecyclerAdapter extends RecyclerView.Adapter<LevelRecyclerAdap
                 @Override
                 public void onClick(View v) {
                     if(locked){
-                        //BuyGenreDialog dialog = new BuyGenreDialog(context, type, genre);
-                        //dialog.show();
                     } else if (!locked){
                         if (gameState == GameState.MAIN) {
                             Fragment fragment = new SubMenuFragment(genre, GameState.MAIN);
@@ -97,8 +94,6 @@ public class LevelRecyclerAdapter extends RecyclerView.Adapter<LevelRecyclerAdap
                 }
             });
         }
-
-        //public void initMain
 
         public String getGenre() {
             return genre;

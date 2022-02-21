@@ -1,6 +1,8 @@
 package com.example.musicme.customViews;
 
 import android.content.Context;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.musicme.R;
+import com.example.musicme.database.SqlPlayerData;
 import com.example.musicme.enums.GenreItemState;
 
 public class GenreItem extends ConstraintLayout {
@@ -38,11 +41,11 @@ public class GenreItem extends ConstraintLayout {
 
     public GenreItem(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-     //   LayoutInflater inflater = LayoutInflater.from(context);
-       // this.view = inflater.inflate(R.layout.genre_item, this);
-      //  this.view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-      //  addView(this.view);
-      //  init();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        this.view = inflater.inflate(R.layout.genre_item, this);
+        this.view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        addView(this.view);
+        init();
 
     }
 
@@ -50,17 +53,17 @@ public class GenreItem extends ConstraintLayout {
         this.textView = view.findViewById(R.id.genre_name);
         this.genreImage = view.findViewById(R.id.genre_image);
         this.lockImage = view.findViewById(R.id.circle);
-        setState();
+        this.setState();
     }
 
     public void setGenre(String genre) {
         this.genre = genre;
-        //this.textView = view.findViewById(R.id.genre_name);
-        //this.textView.setText(genre);
+        this.textView = view.findViewById(R.id.genre_name);
+        this.textView.setText(genre);
     }
 
-    public void setState(){
-      /*  if(SqlPlayerData.genreLevelExists(this.type, this.genre)){
+    private void setState(){
+       if(SqlPlayerData.genreLevelExists(this.type, this.genre)){
             this.genreItemState = GenreItemState.UNCLOCKED;
             this.lockImage.setVisibility(View.GONE);
         } else {
@@ -68,7 +71,7 @@ public class GenreItem extends ConstraintLayout {
             ColorMatrix matrix = new ColorMatrix();
             matrix.setSaturation(0);
             this.genreImage.setColorFilter(new ColorMatrixColorFilter(matrix));
-        }*/
+        }
     }
 
     public GenreItemState getGenreItemState(){

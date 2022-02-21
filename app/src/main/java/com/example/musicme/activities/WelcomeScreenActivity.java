@@ -5,13 +5,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.musicme.R;
 import com.example.musicme.database.SqlPlayerData;
 import com.example.musicme.marathon.MarathonActivity;
-import com.example.musicme.objects.LevelStore;
 import com.example.musicme.objects.UserStore;
 
 public class WelcomeScreenActivity extends AppCompatActivity {

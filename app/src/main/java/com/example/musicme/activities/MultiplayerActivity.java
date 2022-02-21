@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.musicme.R;
 
-public class MultiplayerActivity extends AppCompatActivity {
+public class  MultiplayerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

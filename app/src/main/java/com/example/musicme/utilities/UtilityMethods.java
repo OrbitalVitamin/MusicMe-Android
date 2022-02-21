@@ -21,8 +21,9 @@ import java.util.List;
 
 public class UtilityMethods {
 
-    public static String readFile(String filename, Context context) throws IOException {
-        String json = null;
+    public static String readFile(String filename, Context context) {
+
+        String json;
 
         try {
             InputStream is = context.getAssets().open(filename);
@@ -39,12 +40,14 @@ public class UtilityMethods {
     }
 
     public static List<String> parseFileJson(String filename, Context context) throws IOException, JSONException {
-        JSONArray array = new JSONArray(readFile(filename, context));
-        List<String> words = new ArrayList<>();
-        for(int i =0; i < array.length(); i++) {
-            words.add(array.getString(i));
+
+        JSONArray jsonArray = new JSONArray(readFile(filename, context));
+        List<String> data = new ArrayList<>();
+
+        for(int i =0; i < jsonArray.length(); i++) {
+            data.add(jsonArray.getString(i));
         }
-        return words;
+        return data;
     }
 
 

@@ -1,8 +1,5 @@
 package com.example.musicme.utilities;
 
-import android.text.LoginFilter;
-import android.util.Log;
-
 import com.example.musicme.objects.QuestionAttributes;
 import com.example.musicme.objects.QuestionNameHolder;
 import com.example.musicme.objects.Song;

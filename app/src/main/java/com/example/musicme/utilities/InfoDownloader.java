@@ -24,7 +24,7 @@ public class InfoDownloader {
 
 
     public static void SingleLinkJsonRequest(String route, Context context, final ReceiveSongListListener receiveSongListListener){
-        String url = "https://musicmemarathonfunction.azurewebsites.net/api/" + route;
+        String url = "" + route;
         mQueue = Volley.newRequestQueue(context);
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -67,10 +67,9 @@ public class InfoDownloader {
 
     public static List<String> parseSongResponseArtist(JSONArray response) throws JSONException {
         List<String> artists = new ArrayList<>();
-        for (int i = 0; i < response.length(); i ++){
+        for (int i = 0; i < response.length(); i++) {
             artists.add(response.getJSONObject(i).getString("name"));
         }
         return artists;
     }
-
 }

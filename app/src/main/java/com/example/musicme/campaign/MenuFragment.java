@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.musicme.R;
-import com.example.musicme.activities.MainActivity;
 import com.example.musicme.activities.WelcomeScreenActivity;
 import com.example.musicme.adapters.SectionsPagerAdapter;
-import com.example.musicme.objects.UserStore;
 import com.example.musicme.tabs.ArtistFragment;
 import com.example.musicme.tabs.GenreFragment;
 import com.example.musicme.tabs.TimeFragment;
@@ -34,7 +31,6 @@ public class MenuFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -74,12 +70,15 @@ public class MenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menu, container, false);
+
         titleView = root.findViewById(R.id.title);
         viewPager = root.findViewById(R.id.view_pager);
         tabs = root.findViewById(R.id.tabs);
+
         tabList[0] = root.findViewById(R.id.genre_tab);
         tabList[1] = root.findViewById(R.id.time_tab);
         tabList[2] = root.findViewById(R.id.area_tab);
+
         return root;
     }
 
@@ -94,15 +93,20 @@ public class MenuFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
+
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+
         setupViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {
+
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getActivity().getSupportFragmentManager());
+
         adapter.addFragment(new GenreFragment());
         adapter.addFragment(new ArtistFragment());
         adapter.addFragment(new TimeFragment());
+
         viewPager.setAdapter(adapter);
     }
 }

@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,10 +51,10 @@ public class MarathonQuizFragment extends Fragment implements View.OnClickListen
 
     private View game;
     private View loading;
-    private HashMap<String, byte[]> mAudioclips = new HashMap<>();
+    private HashMap<String, byte[]> audioClips = new HashMap<>();
 
     AnswerItem[]  answerItems = new AnswerItem[4];
-    File temp;
+    File audiofile;
     ImageView playBttn;
     private MediaPlayer mediaPlayer;
     private List<QuestionAttributes> questionAttributes = new ArrayList<>();
@@ -184,7 +183,7 @@ public class MarathonQuizFragment extends Fragment implements View.OnClickListen
         BlobDownloader.launchRequestForData(songs, getContext(), new BlobDownloader.ReceiveDataListListener() {
             @Override
             public void onSongListAvailable(HashMap<String, byte[]> audioclips) {
-                mAudioclips.putAll(audioclips);
+                audioclips.putAll(audioclips);
                 if(game.getVisibility() != View.VISIBLE) {
                     startQuiz();
 
@@ -238,7 +237,7 @@ public class MarathonQuizFragment extends Fragment implements View.OnClickListen
         this.mediaPlayer.stop();
 
         if(this.qIndex < this.questionAttributes.size()-1) {
-            prepareAudio(this.mAudioclips.get(this.questionAttributes.get(qIndex+1).getSoundfile()));
+            prepareAudio(this.audioClips.get(this.questionAttributes.get(qIndex+1).getSoundfile()));
         }
 
         if(this.qIndex%10==7){
@@ -299,14 +298,14 @@ public class MarathonQuizFragment extends Fragment implements View.OnClickListen
     private void prepareAudio(byte[] audioByteArray) {
 
         try {
-            this.temp = File.createTempFile("TCL", "mp3", getActivity().getCacheDir());
-            this.temp.deleteOnExit();
-            FileOutputStream fos = new FileOutputStream(this.temp);
-            fos.write(audioByteArray);
-            fos.close();
+            this.audiofile = File.createTempFile("TCL", "mp3", getActivity().getCacheDir());
+            this.audiofile.deleteOnExit();
+            FileOutputStream fileOutputStream = new FileOutputStream(this.audiofile);
+            fileOutputStream.write(audioByteArray);
+            fileOutputStream.close();
             mediaPlayer = new MediaPlayer();
-            FileInputStream MyFile = new FileInputStream(this.temp);
-            mediaPlayer.setDataSource(this.temp.getPath());
+            FileInputStream aFile = new FileInputStream(this.audiofile);
+            mediaPlayer.setDataSource(this.audiofile.getPath());
             mediaPlayer.prepare();
 
         } catch (IOException e) {

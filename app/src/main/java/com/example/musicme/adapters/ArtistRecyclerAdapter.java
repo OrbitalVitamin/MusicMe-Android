@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musicme.R;
 import com.example.musicme.database.SqlPlayerData;
-import com.example.musicme.dialogs.BuyGenreDialog;
+
 import com.example.musicme.enums.GameState;
 import com.example.musicme.enums.GenreItemState;
 
@@ -63,15 +63,6 @@ public class ArtistRecyclerAdapter extends RecyclerView.Adapter<ArtistRecyclerAd
         public void init() {
             genreName.setText(this.genre);
             setState();
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (locked) {
-                       // BuyGenreDialog dialog = new BuyGenreDialog(context, type, genre);
-                        //dialog.show();
-                    }
-                }
-            });
 
         }
 

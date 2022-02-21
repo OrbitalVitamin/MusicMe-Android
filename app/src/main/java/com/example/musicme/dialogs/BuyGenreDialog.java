@@ -2,20 +2,15 @@ package com.example.musicme.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musicme.R;
 import com.example.musicme.adapters.GenreRecyclerAdapter;
-import com.example.musicme.adapters.LevelRecyclerAdapter;
 import com.example.musicme.database.SqlPlayerData;
 import com.example.musicme.enums.GameState;
 import com.example.musicme.utilities.UtilityMethods;
@@ -23,7 +18,7 @@ import com.example.musicme.utilities.UtilityMethods;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.util.Objects;
+
 
 public class BuyGenreDialog extends Dialog {
     SqlPlayerData data;

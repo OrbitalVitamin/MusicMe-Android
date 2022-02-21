@@ -3,10 +3,8 @@ package com.example.musicme.customViews;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -14,7 +12,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.musicme.R;
 import com.example.musicme.database.SqlPlayerData;
 import com.example.musicme.objects.UserStore;
-import com.example.musicme.utilities.LifeUtilities;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
